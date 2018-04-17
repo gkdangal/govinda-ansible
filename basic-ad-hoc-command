@@ -1,0 +1,16 @@
+
+
+[root@ansible1 ~]# ansible all -m shell -a  '/bin/ping -c3 google.com'
+[root@ansible1 ~]# ansible app -m shell -a  '/bin/ping -c3 google.com'
+[root@ansible1 ~]# ansible web -m ping 
+ansible3.nuemd.com | SUCCESS => {
+    "changed": false, 
+    "ping": "pong"
+}
+
+
+[root@ansible1 ~]# ansible all -m yum -a "name=ntp state=present"
+[root@ansible1 ~]# ansible all -m yum -a "name=ntp state=absent"
+[root@ansible1 ~]# ansible all -m yum -a "name=ntp state=present"
+[root@ansible1 ~]# ansible all -b -m service -a "name=ntpd state=started enabled=yes"
+
